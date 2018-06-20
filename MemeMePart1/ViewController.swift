@@ -81,15 +81,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //Present the Camera
     @IBAction func tappedOnCamera(_ sender: Any) {
-        let uipickerController = UIImagePickerController()
-        setupUIPicker(uipicker: uipickerController, sourceType: .camera)
+        setupUIPicker(sourceType: .camera)
     }
     
     //Tapped On Albums
     @IBAction func tappedOnPicker(_ sender: Any) {
         //Create the picker
-        let uipicker = UIImagePickerController()
-        setupUIPicker(uipicker: uipicker, sourceType: .photoLibrary)
+        setupUIPicker(sourceType: .photoLibrary)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -201,7 +199,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         shareButton.isEnabled = false
     }
     
-    func setupUIPicker(uipicker: UIImagePickerController, sourceType: UIImagePickerControllerSourceType){
+    func setupUIPicker(sourceType: UIImagePickerControllerSourceType){
+        let uipicker = UIImagePickerController()
         uipicker.delegate = self
         uipicker.sourceType = sourceType
         present(uipicker, animated: true, completion: nil)
