@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,25 +40,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="247" verticalHuggingPriority="244" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="745" translatesAutoresizingMaskIntoConstraints="NO" id="D2L-NK-Uht">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hu9-CA-xwd" userLabel="Top Text Field">
-                                <rect key="frame" x="171" y="127" width="32" height="17"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Yx7-VA-uNl"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6s-r2-fkR" userLabel="Bottom Text Field">
-                                <rect key="frame" x="155.5" y="552" width="64" height="17"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="2Pr-Ng-eac"/>
-                                </connections>
-                            </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="754" translatesAutoresizingMaskIntoConstraints="NO" id="o19-sB-3ab">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="260" verticalHuggingPriority="755" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="758" translatesAutoresizingMaskIntoConstraints="NO" id="o19-sB-3ab">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="Album" width="1" id="xgi-Au-SzT">
@@ -73,19 +56,42 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5WZ-EX-bef"/>
                                 </items>
                             </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" verticalHuggingPriority="246" horizontalCompressionResistancePriority="745" verticalCompressionResistancePriority="745" axis="vertical" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cP4-0k-e75">
+                                <rect key="frame" x="0.0" y="144" width="375" height="443"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hu9-CA-xwd" userLabel="Top Text Field">
+                                        <rect key="frame" x="171.5" y="0.0" width="32" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Yx7-VA-uNl"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="755" verticalHuggingPriority="755" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6s-r2-fkR" userLabel="Bottom Text Field">
+                                        <rect key="frame" x="155.5" y="426" width="64" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="2Pr-Ng-eac"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="D2L-NK-Uht" firstAttribute="top" secondItem="1kC-E3-dP8" secondAttribute="bottom" id="4DQ-Ba-21D"/>
                             <constraint firstItem="o19-sB-3ab" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="AQs-1D-yha"/>
+                            <constraint firstItem="o19-sB-3ab" firstAttribute="bottom" secondItem="cP4-0k-e75" secondAttribute="bottom" constant="80" id="D67-Wf-D6s"/>
                             <constraint firstItem="D2L-NK-Uht" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KaK-Ny-hhk"/>
-                            <constraint firstItem="o19-sB-3ab" firstAttribute="bottom" secondItem="U6s-r2-fkR" secondAttribute="top" constant="115" id="XlH-JV-cJa"/>
                             <constraint firstItem="D2L-NK-Uht" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZAM-pA-30B"/>
                             <constraint firstItem="o19-sB-3ab" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aBB-Qw-Bj8"/>
                             <constraint firstItem="o19-sB-3ab" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aFf-xJ-PGw"/>
-                            <constraint firstItem="hu9-CA-xwd" firstAttribute="bottom" secondItem="1kC-E3-dP8" secondAttribute="top" constant="124" id="b50-4C-pYV"/>
-                            <constraint firstItem="hu9-CA-xwd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oes-KO-18b"/>
-                            <constraint firstItem="U6s-r2-fkR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qAd-Fd-Qtf"/>
+                            <constraint firstItem="cP4-0k-e75" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e5z-F0-auR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cP4-0k-e75" secondAttribute="trailing" id="pE7-Lr-maI"/>
+                            <constraint firstItem="cP4-0k-e75" firstAttribute="top" secondItem="1kC-E3-dP8" secondAttribute="bottom" constant="80" id="qOi-9J-Yhp"/>
                             <constraint firstItem="1kC-E3-dP8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rOc-rZ-5g5"/>
                             <constraint firstItem="1kC-E3-dP8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xRb-tc-AYS"/>
                             <constraint firstItem="o19-sB-3ab" firstAttribute="top" secondItem="D2L-NK-Uht" secondAttribute="bottom" id="xXk-fy-WzZ"/>
@@ -106,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31.199999999999999" y="62.518740629685162"/>
+            <point key="canvasLocation" x="31.199999999999999" y="62.068965517241381"/>
         </scene>
     </scenes>
 </document>

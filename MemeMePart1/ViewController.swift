@@ -39,20 +39,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewDidLoad(){
-       
+        let impactFontStyle: [String:Any] = [     NSAttributedStringKey.strokeColor.rawValue : UIColor.black,
+                                                  NSAttributedStringKey.foregroundColor.rawValue : UIColor.white,
+                                                  NSAttributedStringKey.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 35)!,
+                                                  NSAttributedStringKey.strokeWidth.rawValue : -5]
         
-        setupTextFieldFrom(textField: topTextField, with: "TOP", attributes:
-            [ NSAttributedStringKey.strokeColor.rawValue : UIColor.black,
-              NSAttributedStringKey.foregroundColor.rawValue : UIColor.white,
-              NSAttributedStringKey.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 35)!,
-              NSAttributedStringKey.strokeWidth.rawValue : -5])
+        setupTextFieldFrom(textField: topTextField, with: "TOP", attributes: impactFontStyle)
         
-        setupTextFieldFrom(textField: bottomTextField, with: "BOTTOM", attributes:
-            [ NSAttributedStringKey.strokeColor.rawValue : UIColor.black,
-              NSAttributedStringKey.foregroundColor.rawValue : UIColor.white,
-              NSAttributedStringKey.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 35)!,
-              NSAttributedStringKey.strokeWidth.rawValue : -5])
-    
+        setupTextFieldFrom(textField: bottomTextField, with: "BOTTOM", attributes: impactFontStyle)
+        
         super.viewDidLoad()
         
     }
@@ -110,7 +105,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let image = info[UIImagePickerControllerOriginalImage] else {return}
         imageView.image = image as? UIImage
-
+        
         
         picker.dismiss(animated: true, completion: nil)
     }
@@ -123,15 +118,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.defaultTextAttributes = attributes
         
         
-    }
-    func createOutline(from strokeColor: UIColor, foregroundColor: UIColor, font: (String,CGFloat), strokeWidth: Float) -> [String : Any] {
-        let attributedText:[String: Any] = [
-            NSAttributedStringKey.strokeColor.rawValue : strokeColor /* TODO: fill in appropriate UIColor */,
-            NSAttributedStringKey.foregroundColor.rawValue : foregroundColor/* TODO: fill in appropriate UIColor */,
-            NSAttributedStringKey.font.rawValue : UIFont(name: font.0, size: font.1)!,
-            NSAttributedStringKey.strokeWidth.rawValue : strokeWidth /* TODO: fill in appropriate Float */]
-        
-        return attributedText
     }
     
     func subscribeToKeyboardNotifications() {
@@ -195,13 +181,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityViewController.popoverPresentationController?.barButtonItem = shareButton
         activityViewController.completionWithItemsHandler =
             { (activity, success, items, error) in
-            if(success && error == nil){
-                self.save()
-                self.dismiss(animated: true, completion: nil);
-            }
-            else if (error != nil){
-               print(error.debugDescription)
-            }
+                if(success && error == nil){
+                    self.save()
+                    self.dismiss(animated: true, completion: nil);
+                }
+                else if (error != nil){
+                    print(error.debugDescription)
+                }
         }
         present(activityViewController, animated: true, completion: nil)
         
