@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -39,6 +39,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewDidLoad(){
+         super.viewDidLoad()
         let impactFontStyle: [String:Any] = [     NSAttributedStringKey.strokeColor.rawValue : UIColor.black,
                                                   NSAttributedStringKey.foregroundColor.rawValue : UIColor.white,
                                                   NSAttributedStringKey.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 35)!,
@@ -47,8 +48,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         setupTextFieldFrom(textField: topTextField, with: "TOP", attributes: impactFontStyle)
         
         setupTextFieldFrom(textField: bottomTextField, with: "BOTTOM", attributes: impactFontStyle)
+        topTextField.textAlignment = .center
+        bottomTextField.textAlignment = .center
         
-        super.viewDidLoad()
+       
         
     }
     
@@ -89,11 +92,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Create the picker
         setupUIPicker(sourceType: .photoLibrary)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
@@ -209,7 +207,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 
 
-extension ViewController: UITextFieldDelegate {
+extension MemeMeViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
