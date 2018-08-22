@@ -36,7 +36,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="185"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="MemeGenerator_180 copy" translatesAutoresizingMaskIntoConstraints="NO" id="3dY-zx-x7I">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dY-zx-x7I">
                                                     <rect key="frame" x="0.0" y="0.0" width="165" height="185"/>
                                                 </imageView>
                                             </subviews>
@@ -158,7 +158,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="247" verticalHuggingPriority="253" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="745" image="MemeGenerator_120 copy" translatesAutoresizingMaskIntoConstraints="NO" id="D2L-NK-Uht">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="247" verticalHuggingPriority="253" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="745" translatesAutoresizingMaskIntoConstraints="NO" id="D2L-NK-Uht">
                                 <rect key="frame" x="0.0" y="64" width="568" height="192"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hu9-CA-xwd" userLabel="Top Text Field">
@@ -198,7 +198,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="D2L-NK-Uht" firstAttribute="top" relation="lessThanOrEqual" secondItem="1kC-E3-dP8" secondAttribute="bottom" id="4DQ-Ba-21D"/>
+                            <constraint firstItem="D2L-NK-Uht" firstAttribute="top" secondItem="1kC-E3-dP8" secondAttribute="bottom" id="4DQ-Ba-21D"/>
                             <constraint firstItem="o19-sB-3ab" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="AQs-1D-yha"/>
                             <constraint firstItem="D2L-NK-Uht" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KaK-Ny-hhk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="U6s-r2-fkR" secondAttribute="bottom" constant="100" id="LFN-vC-A1E"/>
@@ -247,7 +247,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="530" height="94.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="Mz0-sU-U7Y">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Mz0-sU-U7Y">
                                             <rect key="frame" x="0.0" y="0.0" width="155" height="85"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="155" id="fww-qW-jhZ"/>
@@ -295,11 +295,11 @@
             </objects>
             <point key="canvasLocation" x="1416.8" y="125.4872563718141"/>
         </scene>
-        <!--Item 2-->
+        <!--Grid View-->
         <scene sceneID="jPe-KR-0Ne">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c7z-fS-1Nl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" image="collection_30x30" id="PeP-sQ-sxI"/>
+                    <tabBarItem key="tabBarItem" title="Grid View" image="collection_30x30" id="PeP-sQ-sxI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zco-Uc-CCN">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
@@ -314,11 +314,11 @@
             </objects>
             <point key="canvasLocation" x="-74.400000000000006" y="1039.4302848575712"/>
         </scene>
-        <!--Item 1-->
+        <!--Table View-->
         <scene sceneID="ees-kY-8ys">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0pK-eq-CGc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" image="table_30x30" id="qkf-Hs-S63"/>
+                    <tabBarItem key="tabBarItem" title="Table View" image="table_30x30" id="qkf-Hs-S63"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3M2-uo-9Zn">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
@@ -335,9 +335,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImage" width="1536" height="2048"/>
-        <image name="MemeGenerator_120 copy" width="120" height="120"/>
-        <image name="MemeGenerator_180 copy" width="180" height="180"/>
         <image name="collection_30x30" width="30" height="30"/>
         <image name="table_30x30" width="30" height="30"/>
     </resources>

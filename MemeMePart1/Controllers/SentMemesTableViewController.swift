@@ -10,9 +10,6 @@
  import Foundation
  import UIKit
  
- let appDelegate = UIApplication.shared.delegate as! AppDelegate
- 
- 
  class SentMemesTableViewController: UITableViewController {
     
     
@@ -49,11 +46,8 @@
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let contents = try! FileManager.tryContents(from: DataModel.path)
         //Removes meme from all 3 places.
-        guard var urls = contents else { return }
-        
-        
+        guard var urls = DataModel.memes else { return }
         let indexPaths = [indexPath]
         try? FileManager.default.removeItem(at: urls[indexPath.row])
         memes.remove(at: indexPath.row)
@@ -66,7 +60,7 @@
             //Pass image to the meme view when the cell is tapped.
             if let indexPath = tableView.indexPathForSelectedRow {
                 let image = memes[indexPath.row].memedImage
-                let controller = segue.destination as! MemedImageViewController
+                guard let controller = segue.destination as? MemedImageViewController else { return }
                 controller.image = image
             }
         }

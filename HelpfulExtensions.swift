@@ -16,11 +16,6 @@ public extension FileManager {
     static var userDirectory: URL {
         return self.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
-    
-    static func tryContents(from path: URL) throws -> [URL]? {
-        guard  let contents = try? self.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil, options: .skipsHiddenFiles) else { print("failed to get contents");  return nil  }
-        return contents
-    }
 }
 
 extension UIImage {
@@ -43,6 +38,13 @@ extension Array where Element: Equatable {
                 result.append(element)
             }
         }
+    }
+}
+
+extension DataModel {
+    static var memes: [URL]? {
+        guard let urls = try? FileManager.default.contentsOfDirectory(at: self.path, includingPropertiesForKeys: nil, options: .skipsHiddenFiles) else { return nil }
+        return urls
     }
 }
 

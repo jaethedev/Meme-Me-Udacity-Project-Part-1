@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeMeViewController.swift
 //  MemeMePart1
 //
 //  Created by Jawaune on 5/15/18.
@@ -30,7 +30,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func shareMeme(_ sender: UIBarButtonItem) {
         let image = generateMemedImage()
-        launchShareActivityFrom(image: image)
+        launchShareActivityFor(image: image)
     }
     
     
@@ -61,15 +61,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         return true
     }
     
-    var memes: [Meme] {
-        get {
-            return appDelegate.dataModel.memes }
-        set {
-            appDelegate.dataModel.memes = newValue
-        }
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Create The Impact Font
@@ -97,8 +88,8 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     //Grab the image chosen from the photolibrary out of the dictionary using the info key, and set the image view's image to that chosen image.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        guard let image = info[UIImagePickerControllerOriginalImage] else { return }
-        imageView.image = image as? UIImage
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        imageView.image = image
         
         picker.dismiss(animated: true, completion: nil)
     }
@@ -123,17 +114,17 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     //Will move bottomTextField up if keyboard is about to appear
     @objc func keyboardWillShow(_ notification: Notification) {
         if bottomTextField.isEditing {
-            moveKeyBoard(by: 43.5, from: notification)
+            moveViewBy(points: 43.5, from: notification)
         }
         
         if topTextField.isEditing && UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
-            moveKeyBoard(by: 87, from: notification)
+            moveViewBy(points: 87, from: notification)
 
         }
     }
     
-    func moveKeyBoard(by amount: CGFloat, from notification: Notification) {
-        view.frame.origin.y += amount - getKeyboardHeight(notification)
+    func moveViewBy(points: CGFloat, from notification: Notification) {
+        view.frame.origin.y += points - getKeyboardHeight(notification)
         UIView.animate(withDuration: 0.8, animations: { self.view.layoutIfNeeded()})
     }
     
@@ -169,7 +160,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
-    func launchShareActivityFrom(image: UIImage){
+    func launchShareActivityFor(image: UIImage){
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         activityViewController.popoverPresentationController?.barButtonItem = shareButton
         activityViewController.completionWithItemsHandler =
@@ -194,7 +185,8 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func save(memedImage: UIImage){
         // Create a meme object
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, imageData: (imageView.image?.data)!, memedImageData: (memedImage.data))
+        guard let topText = topTextField.text, let bottomText = bottomTextField.text, let imagedata = imageView.image?.data else { return }
+        let meme = Meme(topText: topText, bottomText:bottomText, imageData: imagedata, memedImageData: (memedImage.data))
         DataModel.persistMeme(meme: meme)
     }
 }

@@ -97,12 +97,11 @@ class DataModel {
         let path = DataModel.path
         print(path)
         let decoder = JSONDecoder()
-        guard  let contents = try? FileManager.tryContents(from: path) else { return }
-        guard let urlLocation = contents else { return }
+        guard  let contents = DataModel.memes else { return }
         var data = Data()
-        guard let pathExtension = urlLocation.first?.pathExtension else { return }
+        guard let pathExtension = contents.first?.pathExtension else { return }
         
-        for url in urlLocation where url.pathExtension == pathExtension {
+        for url in contents where url.pathExtension == pathExtension {
             do {
                 data = try Data(contentsOf: url)
                 meme = try decoder.decode(Meme.self, from: data)
